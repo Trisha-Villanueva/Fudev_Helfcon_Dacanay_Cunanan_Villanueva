@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HELF Display & Accessibility</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
+            font-size: 1em; /* Responsive font size */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        /* ... Other styles remain unchanged ... */
+.font-style-option {
+            margin-bottom: 20px; /* Add some margin to create space between the dropdown and the button */
+        }
+        .section{
+            margin-right: 10px;
+            color: #555; /* Adjust the color of labels */
+        }
+        label{
+            margin-right: 10px;
+            color: #555; /* Adjust the color of labels */
+        }
+        .container h1{
+            margin-right: 10px;
+            color: #555; /* Adjust the color of labels */
+        }
+        .accessibility-settings button {
+            width: 100%; /* Make the button responsive */
+            max-width: 200px; /* Set a maximum width if needed */
+            margin: 0 auto; /* Center the button horizontally */
+            background-color: #47c3e2;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        @media screen and (min-width: 600px) {
+            /* Adjust font size for larger screens if needed */
+            body {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Display & Accessibility</h1>
+
+        <div class="section">
+            <h2>Display Mode</h2>
+
+            <div class="display-mode-option">
+                <label for="lightMode">Light Mode</label>
+                <input type="radio" id="lightMode" name="displayMode" onclick="setLightMode()">
+            </div>
+
+            <div class="display-mode-option">
+                <label for="darkMode">Dark Mode</label>
+                <input type="radio" id="darkMode" name="displayMode" onclick="setDarkMode()">
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Text Size</h2>
+
+            <div class="text-size-option">
+                <label for="normalText">Normal</label>
+                <input type="radio" id="normalText" name="textSize" onclick="setTextSize('normal')">
+            </div>
+
+            <div class="text-size-option">
+                <label for="largeText">Large</label>
+                <input type="radio" id="largeText" name="textSize" onclick="setTextSize('large')">
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Brightness</h2>
+
+            <div class="brightness-option">
+                <label for="brightnessSlider">Adjust Brightness</label>
+                <input type="range" id="brightnessSlider" min="0" max="100" value="100" oninput="setBrightness()">
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Font Style</h2>
+
+            <div class="font-style-option">
+                <label for="fontStyle">Select Font Style</label>
+                <select id="fontStyle" onchange="setFontStyle()">
+                    <option value="Arial">Arial</option>
+                    <option value="Verdana">Verdana</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="section accessibility-settings">
+            <button onclick="resetSettings()">Reset to Default</button>
+        </div>
+    </div>
+
+    <script>
+        function setLightMode() {
+            document.body.style.backgroundColor = '#fff';
+            document.body.style.color = '#333';
+            document.getElementById('lightMode').parentNode.style.color = '#555';
+            document.getElementById('darkMode').parentNode.style.color = '#555';
+        }
+
+        function setDarkMode() {
+            document.body.style.backgroundColor = '#333';
+            document.body.style.color = '#fff';
+            document.getElementById('lightMode').parentNode.style.color = '#fff';
+            document.getElementById('darkMode').parentNode.style.color = '#fff';
+        }
+
+
+        function setTextSize(size) {
+            document.body.style.fontSize = size === 'large' ? '18px' : '16px';
+        }
+
+        function setBrightness() {
+            const brightnessValue = document.getElementById('brightnessSlider').value;
+            document.body.style.filter = `brightness(${brightnessValue}%)`;
+        }
+
+        function setFontStyle() {
+            const selectedFontStyle = document.getElementById('fontStyle').value;
+            document.body.style.fontFamily = selectedFontStyle;
+        }
+
+        function resetSettings() {
+            document.body.style.backgroundColor = '#f2f2f2';
+            document.body.style.color = '#333';
+            document.body.style.fontSize = '16px';
+            document.getElementById('lightMode').checked = false;
+            document.getElementById('darkMode').checked = false;
+            document.getElementById('normalText').checked = false;
+            document.getElementById('largeText').checked = false;
+            document.getElementById('lightMode').parentNode.style.color = '#555';
+            document.getElementById('darkMode').parentNode.style.color = '#555';
+            document.getElementById('brightnessSlider').value = 100;
+            document.body.style.filter = 'brightness(100%)';
+            document.getElementById('fontStyle').value = 'Arial';
+            document.body.style.fontFamily = 'Arial';
+        }
+    </script>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HELF Help & Support</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+
+      h1 {
+        color: #333;
+        text-align: center;
+      }
+
+      .section {
+        margin-bottom: 30px;
+      }
+
+      h2 {
+        color: #555;
+      }
+
+      .faq-item {
+        margin-bottom: 15px;
+      }
+
+      .faq-question {
+        cursor: pointer;
+        padding: 10px;
+        background-color: #47c3e2;
+        color: #fff;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+      }
+
+      .faq-answer {
+        display: none;
+        padding: 10px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+
+      .contact-form {
+        text-align: center;
+      }
+
+      .contact-form textarea,
+      .contact-form input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+
+      .contact-form button {
+        background-color: #47c3e2;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Help & Support</h1>
+
+      <div class="section">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaqAnswer(this)">
+            I forgot my HELF password. How can I reset it?
+          </div>
+          <div class="faq-answer">
+            On the login page, click on "Forgot Password?" and follow the
+            prompts to reset your password using your email address or phone
+            number associated with your account.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaqAnswer(this)">
+            How do I create a HELF account?
+          </div>
+          <div class="faq-answer">
+            To create a HELF account, visit the HELF website, fill out the
+            required information in the sign-up form, and follow the on-screen
+            instructions.
+          </div>
+        </div>
+
+        <!-- Add more FAQs as needed -->
+      </div>
+
+      <div class="section contact-form">
+        <h2>Contact Support</h2>
+
+        <form>
+          <textarea placeholder="Enter your message" rows="4"></textarea>
+          <input type="text" placeholder="Your Name" />
+          <input type="email" placeholder="Your Email" />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      function toggleFaqAnswer(element) {
+        const faqAnswer = element.nextElementSibling;
+        faqAnswer.style.display =
+          faqAnswer.style.display === "none" ? "block" : "none";
+      }
+    </script>
+  </body>
+</html>

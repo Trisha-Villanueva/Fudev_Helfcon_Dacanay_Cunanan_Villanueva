@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HELF Feedback & Help</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f8f8;
+        color: #333;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+
+      h1 {
+        color: #333;
+        text-align: center;
+      }
+
+      .feedback-form {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        color: #555;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: #47c3e2;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .help-us {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .help-content {
+        display: none;
+        margin-top: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Feedback & Help</h1>
+
+      <div class="feedback-form">
+        <label for="feedback">Your Feedback:</label>
+        <textarea
+          id="feedback"
+          rows="4"
+          placeholder="Enter your feedback"
+        ></textarea>
+        <button onclick="submitFeedback()">Submit Feedback</button>
+      </div>
+
+      <div class="help-us">
+        <button onclick="toggleHelp()">Help Us</button>
+        <div class="help-content">
+          <p>
+            If you need assistance, please contact our support team at
+            support@example.com
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function submitFeedback() {
+        // Add logic to handle feedback submission
+        alert("Feedback submitted successfully!");
+      }
+
+      function toggleHelp() {
+        const helpContent = document.querySelector(".help-content");
+        helpContent.style.display =
+          helpContent.style.display === "none" ? "block" : "none";
+      }
+    </script>
+  </body>
+</html>

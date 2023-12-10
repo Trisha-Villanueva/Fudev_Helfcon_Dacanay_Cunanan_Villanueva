@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HELF EVENTS</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f8f8;
+        color: #333;
+      }
+
+      .calendar-container {
+        max-width: 600px;
+        margin: 20px auto;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+
+      .calendar-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color: #47c3e2;
+        color: #fff;
+        border-radius: 8px 8px 0 0;
+      }
+
+      .calendar-body {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 5px;
+        padding: 10px;
+      }
+
+      .day {
+        position: relative;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        cursor: pointer;
+        text-align: center;
+      }
+
+      .day:hover {
+        background-color: #f0f0f0;
+      }
+
+      .event-list-container {
+        margin-top: 10px;
+        padding: 0 10px;
+      }
+
+      .event-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .event-list li {
+        margin-bottom: 5px;
+        padding: 5px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .navigation-btn {
+        background-color: #47c3e2;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calendar-container">
+      <div class="calendar-header">
+        <button class="navigation-btn" onclick="prevMonth()">Previous</button>
+        <h2 id="month-year"></h2>
+        <button class="navigation-btn" onclick="nextMonth()">Next</button>
+      </div>
+      <div class="calendar-body" id="calendar"></div>
+      <div class="event-list-container" id="event-list-container">
+        <h3>Events</h3>
+        <ul class="event-list" id="event-list"></ul>
+      </div>
+    </div>
+
+    <script>
+      // Get the current date
+      const currentDate = new Date();
+      let currentMonth = currentDate.getMonth();
+      let currentYear = currentDate.getFullYear();
+
+      // function to create calendar
+      function createCalendar(month, year) {
+        const calendar = document.getElementById("calendar");
+        const monthYearLabel = document.getElementById("month-year");
+        monthYearLabel.textContent = `${getMonthName(month)} ${year}`;
+
+        // clear previous calendar
+        calendar.innerHTML = "";
+
+        // set calendar header
+        const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        for (let day of daysOfWeek) {
+          const dayHeader = document.createElement("div");
+          dayHeader.classList.add("day");
+          dayHeader.textContent = day;
+          calendar.appendChild(dayHeader);
+        }
+
+        // fill in calendar with days
+        const firstDayOfMonth = new Date(year, month, 1);
+        const lastDayOfMonth = new Date(year, month + 1, 0);
+        const daysInMonth = lastDayOfMonth.getDate();
+
+        for (let i = 0; i < firstDayOfMonth.getDay(); i++) {
+          const emptyDay = document.createElement("div");
+          calendar.appendChild(emptyDay);
+        }
+
+        for (let i = 1; i <= daysInMonth; i++) {
+          const day = document.createElement("div");
+          day.classList.add("day");
+          day.textContent = i;
+          day.setAttribute("data-date", `${year}-${month + 1}-${i}`);
+          day.addEventListener("click", handleDayClick);
+          calendar.appendChild(day);
+        }
+      }
+
+      // function to handle day click and show events
+      function handleDayClick(event) {
+        const selectedDate = event.target.getAttribute("data-date");
+        const events = getEventsForDate(selectedDate);
+
+        const eventList = document.getElementById("event-list");
+        eventList.innerHTML = "";
+
+        if (events.length === 0) {
+          const noEvents = document.createElement("li");
+          noEvents.textContent = "No events for this day.";
+          eventList.appendChild(noEvents);
+        } else {
+          events.forEach((event) => {
+            const listItem = document.createElement("li");
+            listItem.textContent = event;
+            eventList.appendChild(listItem);
+          });
+        }
+
+        // prompt to add a new event
+        const newEvent = prompt("Enter a new event:");
+        if (newEvent) {
+          addEvent(selectedDate, newEvent);
+          createCalendar(currentMonth, currentYear); // Refresh the calendar to update events
+        }
+      }
+
+      // get events for a specific date
+      function getEventsForDate(date) {
+        const storedEvents = localStorage.getItem("events");
+        const events = storedEvents ? JSON.parse(storedEvents) : {};
+
+        return events[date] || [];
+      }
+
+      // add an event for a specific date
+      function addEvent(date, event) {
+        const storedEvents = localStorage.getItem("events");
+        const events = storedEvents ? JSON.parse(storedEvents) : {};
+
+        if (!events[date]) {
+          events[date] = [];
+        }
+
+        events[date].push(event);
+
+        localStorage.setItem("events", JSON.stringify(events));
+      }
+
+      // get the name of month
+      function getMonthName(month) {
+        const monthNames = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ];
+
+        return monthNames[month];
+      }
+
+      // go to the previous month
+      function prevMonth() {
+        currentMonth--;
+        if (currentMonth < 0) {
+          currentMonth = 11;
+          currentYear--;
+        }
+        createCalendar(currentMonth, currentYear);
+      }
+
+      // go to the next month
+      function nextMonth() {
+        currentMonth++;
+        if (currentMonth > 11) {
+          currentMonth = 0;
+          currentYear++;
+        }
+        createCalendar(currentMonth, currentYear);
+      }
+
+      // Initialize the calendar
+      createCalendar(currentMonth, currentYear);
+    </script>
+  </body>
+</html>

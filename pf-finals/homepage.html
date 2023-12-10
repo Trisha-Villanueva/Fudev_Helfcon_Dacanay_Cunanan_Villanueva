@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HELF</title>
+    <style>
+      body {
+        background-color: #9fd8fb;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .container {
+        text-align: center;
+        color: #352020;
+      }
+
+      h1 {
+        font-size: 48px;
+        font-family: "Times New Roman";
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 34px;
+        margin-bottom: 40px;
+      }
+
+      .button-container {
+        display: flex;
+        justify-content: center;
+      }
+
+      .button {
+        padding: 10px 20px;
+        font-size: 24px;
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        margin: 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      .button:hover {
+        background-color: #2980b9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>YOU ARE WELCOME HERE!</h1>
+      <h2><p>I AM A:</p></h2>
+      <div class="button-container">
+        <button class="button" id="studentButton">Student</button>
+        <button class="button" id="doctorButton">Doctor</button>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("studentButton")
+        .addEventListener("click", function () {
+          window.location.href = "home.html";
+        });
+
+      document
+        .getElementById("doctorButton")
+        .addEventListener("click", function () {
+          window.location.href = "home.html";
+        });
+    </script>
+  </body>
+</html>

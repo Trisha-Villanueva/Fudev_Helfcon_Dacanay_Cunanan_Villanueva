@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HELF CON</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <style>
+      body {
+        background: #f9fcff;
+        margin: 0;
+        padding: 0;
+        font-family: poppins;
+      }
+
+      h3 {
+        margin: 0;
+        padding: 0;
+        font-family: serif;
+        box-sizing: border-box;
+        color: #000000;
+      }
+
+      a {
+        text-decoration: none;
+        font-size: 20px;
+        color: #000000;
+      }
+
+      ul {
+        list-style-type: none;
+      }
+
+      #article {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 40px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+      }
+
+      .article-heading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .article-heading span {
+        color: rgb(0, 0, 0);
+      }
+
+      .article-heading h3 {
+        font-size: 2.4rem;
+        font-weight: 600;
+      }
+
+      .article-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 40px 0px;
+        flex-wrap: wrap;
+        background: #ffffff;
+        border-radius: 15px;
+        padding: 15px;
+      }
+
+      .article-box {
+        width: 300px;
+        height: 300px;
+        background-color: rgb(220, 220, 220);
+        border: 2px solid #000000;
+        margin: 20px;
+      }
+
+      .article-img {
+        width: 100%;
+        height: auto;
+      }
+
+      .article-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #042c61;
+        /* Change the background color */
+        padding: 5px 5%;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        color: #ffffff;
+        font-size: 25px;
+        font-weight: 100;
+      }
+
+      .logo {
+        width: 120px;
+        /* Adjust the logo width */
+        margin-right: 15px;
+        /* Adjust the logo margin */
+      }
+
+      .nav-left,
+      .nav-right {
+        display: flex;
+        align-items: center;
+      }
+
+      .divmess ul li {
+        list-style-type: none;
+        display: inline-block;
+      }
+
+      .divmess ul li img {
+        width: 28px;
+        margin: 0 15px;
+      }
+
+      .nav-user-icon img {
+        width: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+      .nav-user-icon {
+        margin: 0 15px;
+        /* Adjust the user icon margin */
+      }
+
+      .search-box {
+        background: #efefef;
+        width: 350px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+      }
+
+      .search-box img {
+        width: 18px;
+      }
+
+      .search-box input {
+        width: 100%;
+        background: transparent;
+        padding: 10px;
+        outline: none;
+        border: 0;
+      }
+
+      .friends-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        width: 100%;
+      }
+
+      .heading {
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .load-more-btn {
+        display: block;
+        margin: auto;
+        cursor: pointer;
+        padding: 5px 10px;
+        border: 1px solid #9a9a9a;
+        color: #626262;
+        background: transparent;
+        border-radius: 4px;
+      }
+      .settings-menu {
+        position: absolute;
+        width: 90%;
+        max-width: 350px;
+        background: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+        border-radius: 4px;
+        overflow: hidden;
+        top: 100%;
+        right: 5%;
+        max-height: 0;
+        transition: max-height 0.3s;
+      }
+      .settings-menu-height {
+        max-height: 450px;
+      }
+      .user-profile a {
+        font-size: 12px;
+        color: #1876f2;
+        text-decoration: none;
+      }
+      .settings-menu-inner {
+        padding: 20px;
+      }
+      .settings-menu hr {
+        border: 0;
+        height: 1px;
+        background: #9a9a9a;
+        margin: 15px 0;
+      }
+      .settings-links {
+        display: flex;
+        align-items: center;
+        margin: 15px 0;
+      }
+      .settings-links .settings-icon {
+        width: 38px;
+        margin-right: 10px;
+        border-radius: 50%;
+      }
+      .settings-links a {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: space-between;
+        text-decoration: none;
+        color: #626262;
+      }
+      #dark-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: #ccc;
+        width: 45px;
+        border-radius: 15px;
+        padding: 2px 3px;
+        cursor: pointer;
+        transition: padding-left 0.5s, background 0.5s;
+      }
+      #dark-btn span {
+        width: 18px;
+        height: 18px;
+        background: #fff;
+        border-radius: 50%;
+        display: inline-block;
+      }
+      #dark-btn.dark-btn-on {
+        padding-left: 23px;
+        background: #000;
+      }
+
+      .post-input-container ul {
+        list-style: none; /* Remove list-style dot */
+        padding: 0; /* Remove default padding */
+        margin: 0 25px; /* Add margin between list items */
+      }
+
+      .post-input-container ul li {
+        display: inline-block; /* Make list items inline */
+        margin: 0 15px; /* Add margin between list items */
+        margin-right: 60px; /* Add margin between images */
+      }
+
+      .post-input-container ul li img {
+        width: calc(
+          100% - 20px
+        ); /* Make the image occupy the width of the container minus the margin */
+        margin-right: 20px; /* Add margin between images */
+      }
+
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .dropbtn {
+        background: #042c61;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+      }
+
+      .dropbtn img {
+        width: 20px; /* Adjust the size as needed */
+        margin-right: 8px; /* Adjust the spacing as needed */
+        border-radius: 50px; /* Make the image circular */
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 200px; /* Adjust the minimum width as needed */
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: flex; /* Use flex to align image and text horizontally */
+        align-items: center; /* Center items vertically */
+      }
+
+      .dropdown-content a img {
+        width: 30px; /* Adjust the size of the notification image */
+        margin-right: 10px; /* Adjust the spacing between image and text */
+      }
+
+      .dropdown-content a:hover {
+        background-color: #ddd;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <div class="nav-left">
+        <a href="index.html">
+          <img src="HELF IMAGES/logotrans.png" class="logo" />
+        </a>
+      </div>
+      <div class="nav-right">
+        <div class="search-box">
+          <img src="HELF IMAGES/search.png" />
+          <input type="text" placeholder="Search" />
+        </div>
+        <div class="divmess">
+          <ul>
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">
+                  <img src="HELF IMAGES/notification.png" />
+                </button>
+                <div class="dropdown-content">
+                  <a href="#">
+                    <img
+                      src="HELF IMAGES/mem1.jpg"
+                      alt="Notification 1 Image"
+                      width="30"
+                    />
+                    Notification 1 shasha like your image
+                  </a>
+                  <a href="#">
+                    <img
+                      src="HELF IMAGES/mem2.jpg"
+                      alt="Notification 2 Image"
+                      width="30"
+                    />
+                    Notification 2 denis comment on the status you shared
+                  </a>
+                  <a href="#">
+                    <img
+                      src="HELF IMAGES/mem3.jpg"
+                      alt="Notification 3 Image"
+                      width="30"
+                    />
+                    Notification 3 ina reacted to your image you pos
+                  </a>
+                </div>
+              </div>
+            </li>
+            <li><img src="HELF IMAGES/inbox.png" /></li>
+          </ul>
+        </div>
+
+        <div class="nav-user-icon online" onclick="settingsMenuToggle()">
+          <img src="HELF IMAGES/profile.png" />
+        </div>
+      </div>
+
+      <div class="settings-menu">
+        <div id="dark-btn">
+          <span> </span>
+        </div>
+
+        <div class="settings-menu-inner">
+          <div class="user-profile">
+            <img src="HELF IMAGES/profile.png" />
+            <div>
+              <p>Helf Consultation</p>
+              <a href="#">See your profile</a>
+            </div>
+          </div>
+          <hr />
+          <div class="user-profile">
+            <img src="HELF IMAGES/feedback.png" />
+            <div>
+              <p>Give feedback</p>
+              <a href="#">Help us</a>
+            </div>
+          </div>
+          <hr />
+          <div class="settings-links">
+            <img src="HELF IMAGES/settings.png" class="settings-icon" />
+            <a href="#"
+              >Settings & Privacy <img src="HELF IMAGES/arrow.png" width="10px"
+            /></a>
+          </div>
+          <div class="settings-links">
+            <img src="HELF IMAGES/help.png" class="settings-icon" />
+            <a href="#"
+              >Help & Support <img src="HELF IMAGES/arrow.png" width="10px"
+            /></a>
+          </div>
+          <div class="settings-links">
+            <img src="HELF IMAGES/accessibility.png" class="settings-icon" />
+            <a href="#">
+              Display & Accessibility
+              <img src="HELF IMAGES/arrow.png" width="10px"
+            /></a>
+          </div>
+          <div class="settings-links">
+            <img src="HELF IMAGES/logout.png" class="settings-icon" />
+            <a href="#"
+              >logout<img src="HELF IMAGES/arrow.png" width="10px"
+            /></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!--===Article Section=============-->
+    <section id="article">
+      <!--article-container--------->
+      <div class="article-container">
+        <div class="friends-header">
+          <div class="heading">Articles</div>
+        </div>
+        <!--box-1--------------->
+        <div class="article-box">
+          <!--img--------->
+          <div class="article-img">
+            <img src="HELF IMAGES/health.jpg" />
+          </div>
+          <!--text------->
+          <div class="article-text">
+            <h3 class="article-title">Exercise and the Brain</h3>
+            <p>Short description or additional content here...</p>
+            <a
+              href="https://www.wgu.edu/heyteach/article/exercise-and-brain-how-fitness-impacts-learning1801.html"
+              >Read more</a
+            >
+          </div>
+        </div>
+        <!--box-2--------------->
+        <div class="article-box">
+          <!--img--------->
+          <div class="article-img">
+            <img src="HELF IMAGES/educ.jpg" />
+          </div>
+          <!--text------->
+          <div class="article-text">
+            <h3 class="article-title">Importance of Education</h3>
+            <p>Short description or additional content here...</p>
+            <a
+              href="https://byjus.com/english/article-on-the-importance-of-education"
+              >Read more</a
+            >
+          </div>
+        </div>
+        <!--box-3--------------->
+        <div class="article-box">
+          <!--img--------->
+          <div class="article-img">
+            <img src="HELF IMAGES/life.webp" />
+          </div>
+          <!--text------->
+          <div class="article-text">
+            <h3 class="article-title">A Happy Life</h3>
+            <p>Short description or additional content here...</p>
+            <a
+              href="https://www.scientificamerican.com/article/a-happy-life-may-not-be-a-meaningful-life/"
+              >Read more</a
+            >
+          </div>
+        </div>
+        <!--box-4--------------->
+        <div class="article-box">
+          <!--img--------->
+          <div class="article-img">
+            <img src="HELF IMAGES/future.jpg" />
+          </div>
+          <!--text------->
+          <div class="article-text">
+            <h3 class="article-title">How to Have a Great Future</h3>
+            <p>Short description or additional content here...</p>
+            <a href="https://www.wikihow.com/Have-a-Great-Future">Read more</a>
+          </div>
+        </div>
+        <div class="article-box">
+          <!--img--------->
+          <div class="article-img">
+            <img src="HELF IMAGES/future.jpg" />
+          </div>
+          <!--text------->
+          <div class="article-text">
+            <h3 class="article-title">How to Have a Great Future</h3>
+            <p>Short description or additional content here...</p>
+            <a href="https://www.wikihow.com/Have-a-Great-Future">Read more</a>
+          </div>
+        </div>
+        <div class="article-box">
+          <!--img--------->
+          <div class="article-img">
+            <img src="HELF IMAGES/future.jpg" />
+          </div>
+          <!--text------->
+          <div class="article-text">
+            <h3 class="article-title">How to Have a Great Future</h3>
+            <p>Short description or additional content here...</p>
+            <a href="https://www.wikihow.com/Have-a-Great-Future">Read more</a>
+          </div>
+        </div>
+        <div class="article-box">
+          <!--img--------->
+          <div class="article-img">
+            <img src="HELF IMAGES/future.jpg" />
+          </div>
+          <!--text------->
+          <div class="article-text">
+            <h3 class="article-title">How to Have a Great Future</h3>
+            <p>Short description or additional content here...</p>
+            <a href="https://www.wikihow.com/Have-a-Great-Future">Read more</a>
+          </div>
+        </div>
+        <div class="article-box">
+          <!--img--------->
+          <div class="article-img">
+            <img src="HELF IMAGES/future.jpg" />
+          </div>
+          <!--text------->
+          <div class="article-text">
+            <h3 class="article-title">How to Have a Great Future</h3>
+            <p>Short description or additional content here...</p>
+            <a href="https://www.wikihow.com/Have-a-Great-Future">Read more</a>
+          </div>
+        </div>
+        <div class="article-box">
+          <!--img--------->
+          <div class="article-img">
+            <img src="HELF IMAGES/future.jpg" />
+          </div>
+          <!--text------->
+          <div class="article-text">
+            <h3 class="article-title">How to Have a Great Future</h3>
+            <p>Short description or additional content here...</p>
+            <a href="https://www.wikihow.com/Have-a-Great-Future">Read more</a>
+          </div>
+        </div>
+        <div class="article-box">
+          <!--img--------->
+          <div class="article-img">
+            <img src="HELF IMAGES/future.jpg" />
+          </div>
+          <!--text------->
+          <div class="article-text">
+            <h3 class="article-title">How to Have a Great Future</h3>
+            <p>Short description or additional content here...</p>
+            <a href="https://www.wikihow.com/Have-a-Great-Future">Read more</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      let settingsMenu = document.querySelector(".settings-menu");
+      let darkBtn = document.getElementById("dark-btn");
+
+      function settingsMenuToggle() {
+        settingsMenu.classList.toggle("settings-menu-height");
+      }
+
+      darkBtn.onclick = function () {
+        darkBtn.classList.toggle("dark-btn-on");
+        document.body.classList.toggle("dark-theme");
+      };
+
+      const notificationToggle = document.getElementById("toggleCheckbox");
+
+      notificationToggle.addEventListener("change", () => {
+        // You can add your notification toggle logic here
+        if (notificationToggle.checked) {
+          console.log("Notifications enabled");
+          // Add your logic for enabling notifications
+        } else {
+          console.log("Notifications disabled");
+          // Add your logic for disabling notifications
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HELF CON</title>
+    <link rel="stylesheet" href="helf.css" />
+    <script
+      src="https://kit.fontawesome.com/ebdf934a19.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-left">
+        <a href="#"> <img src="HELF IMAGES/logotrans.png" class="logo" /> </a>
+      </div>
+      <div class="nav-right">
+        <div class="search-box">
+          <img src="HELF IMAGES/search.png" />
+          <input type="text" placeholder="Search" />
+        </div>
+        <div class="divmess">
+          <ul>
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">
+                  <img src="HELF IMAGES/notification.png" />
+                </button>
+                <div class="dropdown-content">
+                  <a href="#">
+                    <img
+                      src="HELF IMAGES/mem1.jpg"
+                      alt="Notification 1 Image"
+                      width="30"
+                    />
+                    Notification 1 shasha like your image
+                  </a>
+                  <a href="#">
+                    <img
+                      src="HELF IMAGES/mem2.jpg"
+                      alt="Notification 2 Image"
+                      width="30"
+                    />
+                    Notification 2 denis comment on the status you shared
+                  </a>
+                  <a href="#">
+                    <img
+                      src="HELF IMAGES/mem3.jpg"
+                      alt="Notification 3 Image"
+                      width="30"
+                    />
+                    Notification 3 ina reacted to your image you pos
+                  </a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <a href="../build/index.html"
+                ><img src="HELF IMAGES/inbox.png"
+              /></a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="nav-user-icon online" onclick="settingsMenuToggle()">
+          <img src="HELF IMAGES/profile.png" />
+        </div>
+      </div>
+      <!--setting menu-->
+      <div class="settings-menu">
+        <div id="dark-btn">
+          <span> </span>
+        </div>
+
+        <div class="settings-menu-inner">
+          <!-- Your existing HTML code -->
+          <div class="user-profile">
+            <a href="profile.html">
+              <!-- Make the whole div clickable -->
+              <img src="HELF IMAGES/profile.png" alt="Profile Image" />
+              <div>
+                <p>Helf Consultation</p>
+                <a href="profile.html">See your profile</a>
+                <!-- Make the text clickable -->
+              </div>
+            </a>
+          </div>
+
+          <hr />
+          <div class="user-profile">
+            <img src="HELF IMAGES/feedback.png" />
+            <div>
+              <p>Give feedback</p>
+              <a href="feedback.html">Help us</a>
+            </div>
+          </div>
+          <hr />
+          <div class="settings-links">
+            <img src="HELF IMAGES/settings.png" class="settings-icon" />
+            <a href="settings.html"
+              >Settings & Privacy <img src="HELF IMAGES/arrow.png" width="10px"
+            /></a>
+          </div>
+          <div class="settings-links">
+            <img src="HELF IMAGES/help.png" class="settings-icon" />
+            <a href="helpandsup.html"
+              >Help & Support <img src="HELF IMAGES/arrow.png" width="10px"
+            /></a>
+          </div>
+          <div class="settings-links">
+            <img src="HELF IMAGES/accessibility.png" class="settings-icon" />
+            <a href="accsess.html">
+              Display & Accessibility
+              <img src="HELF IMAGES/arrow.png" width="10px"
+            /></a>
+          </div>
+          <div class="settings-links">
+            <img src="HELF IMAGES/logout.png" class="settings-icon" />
+            <a href="index.html"
+              >Logout<img src="HELF IMAGES/arrow.png" width="10px"
+            /></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <!--left-sidebar-->
+      <div class="left-sidebar">
+        <div class="imp-links">
+          <a href="article.html"
+            ><img src="HELF IMAGES/article.png" /> Articles</a
+          >
+          <a href="friends.html"
+            ><img src="HELF IMAGES/friend.png" /> Friends</a
+          >
+          <a href="groups.html"><img src="HELF IMAGES/group.png" /> Groups</a>
+          <a href="doctors.html"
+            ><img src="HELF IMAGES/doctor.png" /> Doctors</a
+          >
+          <a href="video.html"><img src="HELF IMAGES/watch.png" /> Videos</a>
+          <a href="see-more.html">See More</a>
+        </div>
+        <div class="shortcut-links">
+          <p>Your Shortcuts</p>
+          <a href="shortgroup.html"
+            ><img src="HELF IMAGES/discussion.jpg" />Discussion Page</a
+          >
+          <a href="shortgroup.html"
+            ><img src="HELF IMAGES/family.jpg" />Family Page</a
+          >
+          <a href="shortgroup.html"
+            ><img src="HELF IMAGES/Social Group.jpg" />Online Life Page</a
+          >
+          <a href="shortgroup.html"
+            ><img src="HELF IMAGES/Mental Health .jpg" />Mental Health Page</a
+          >
+        </div>
+      </div>
+
+      <!--main-content-->
+      <div class="main-content">
+        <div class="story-gallery">
+          <div class="story story1">
+            <img src="HELF IMAGES/plus.png" />
+            <p>Post Story</p>
+          </div>
+
+          <div class="story story2">
+            <img src="HELF IMAGES/mem1.jpg" />
+            <p>Mary Angeline</p>
+          </div>
+
+          <div class="story story3">
+            <img src="HELF IMAGES/mem2.jpg" />
+            <p>Christine Herm</p>
+          </div>
+
+          <div class="story story4">
+            <img src="HELF IMAGES/mem3.jpg" />
+            <p>Jackson David</p>
+          </div>
+
+          <div class="story story5">
+            <img src="HELF IMAGES/mem4.jpg" />
+            <p>Alucard Gusion</p>
+          </div>
+        </div>
+
+        <div id="enlarged-image-container">
+          <img id="enlarged-image" alt="Enlarged Image" />
+          <span id="close-enlarged-image">&times;</span>
+        </div>
+
+        <div class="write-post-container">
+          <div class="user-profile">
+            <img src="HELF IMAGES/profile.png" alt="Profile Image" />
+            <div>
+              <p>Helf Consultation</p>
+              <small>Public <i class="fa-solid fa-caret-down"></i></small>
+            </div>
+          </div>
+
+          <div class="post-input-container">
+            <textarea
+              id="post-text"
+              rows="3"
+              placeholder="What's on your mind, Helf Consultation"
+            ></textarea>
+
+            <div class="add-post-links">
+              <a href="#" onclick="toggleFeeling()" id="post-feeling">
+                <img src="HELF IMAGES/feelings.png" />Feeling/Activity</a
+              >
+              <a href="#" onclick="toggleLiveVideo()">
+                <img src="HELF IMAGES/livevideo.png" />Live Video</a
+              >
+              <label for="file-input">
+                <img src="HELF IMAGES/PhotoVideos.png" />Photo/Video</label
+              >
+              <input
+                type="file"
+                id="file-input"
+                accept="image/*"
+                style="display: none"
+                onchange="displayFileName()"
+              />
+            </div>
+          </div>
+
+          <button onclick="postContent()">Post</button>
+        </div>
+
+        <div class="post-container">
+          <div class="post-row">
+            <div class="user-profile">
+              <img src="HELF IMAGES/profile.png" />
+              <div>
+                <p>Helf Consultation</p>
+                <span>November 11 2023, 12:00 pm</span>
+              </div>
+            </div>
+            <a href="#"><i class="fa-solid fa-ellipsis-v"></i></a>
+          </div>
+
+          <p class="post-text">
+            <span>Session Online</span> the first session, be one of us and our
+            family.<a href="#">#SessionsDone</a>
+          </p>
+          <img src="HELF IMAGES/Social Group.jpg" class="post-img" />
+
+          <div class="post-row">
+            <div class="activity-icons">
+              <div class="post-actions">
+                <div class="activity-icons">
+                  <div class="like-btn" onclick="handleLike(this)">
+                    <img src="HELF IMAGES/like.png" /> <span>120</span>
+                  </div>
+                  <div class="comment-btn" onclick="showCommentSection(this)">
+                    <img src="HELF IMAGES/comment.png" /> <span>45</span>
+                  </div>
+                  <div class="share-btn" onclick="handleShare()">
+                    <img src="HELF IMAGES/share.png" /> <span>20</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Comment Section -->
+              <div class="comment-section">
+                <textarea placeholder="Write a comment..."></textarea>
+                <button onclick="postComment()">Post</button>
+                <!-- Display existing comments here -->
+              </div>
+            </div>
+
+            <div class="post-profile-icon">
+              <img src="HELF IMAGES/profile.png" />
+              <i class="fa-solid fa-caret-down"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="post-container">
+          <div class="post-row">
+            <div class="user-profile">
+              <img src="HELF IMAGES/profile.png" />
+              <div>
+                <p>Helf Consultation</p>
+                <span>November 11 2023, 12:00 pm</span>
+              </div>
+            </div>
+            <a href="#"><i class="fa-solid fa-ellipsis-v"></i></a>
+          </div>
+
+          <p class="post-text">
+            <span>Session Online</span> Done for the first batch consulatation,
+            be one of us and our family.<a href="#">#SessionsDone</a>
+          </p>
+          <img src="HELF IMAGES/adver.jpg" class="post-img" />
+
+          <div class="post-row">
+            <div class="activity-icons">
+              <div><img src="HELF IMAGES/like.png" />120</div>
+              <div><img src="HELF IMAGES/comment.png" />45</div>
+              <div><img src="HELF IMAGES/share.png" />20</div>
+            </div>
+            <div class="post-profile-icon">
+              <img src="HELF IMAGES/profile.png" />
+              <i class="fa-solid fa-caret-down"></i>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="load-more-btn">Load More</button>
+      </div>
+      <!--right-sidebar-->
+      <div class="right-sidebar">
+        <div class="sidebar-title">
+          <h4>Events</h4>
+          <a href="event.html">See All</a>
+        </div>
+
+        <div class="events">
+          <div class="left-event">
+            <h3>18</h3>
+            <span>Nov</span>
+          </div>
+
+          <div class="right-event">
+            <h4>Social Media</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Manila Park</p>
+            <a href="event.html">More Info</a>
+          </div>
+        </div>
+
+        <div class="events">
+          <div class="left-event">
+            <h3>18</h3>
+            <span>June</span>
+          </div>
+
+          <div class="right-event">
+            <h4>Social Group</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Meneses Clinic</p>
+            <a href="event.html">More Info</a>
+          </div>
+        </div>
+
+        <div class="sidebar-title">
+          <h4>Advertisement</h4>
+          <a href="https://www.britannica.com/topic/social-group">More Info</a>
+        </div>
+        <img src="HELF IMAGES/adver.jpg" class="sidebar-ads" />
+
+        <div class="sidebar-title">
+          <h4>Conversation</h4>
+          <a href="../build/index.html">Open Chat</a>
+        </div>
+
+        <div class="online-list">
+          <div class="online">
+            <a href="http://localhost:3000/chat">
+              <img src="HELF IMAGES/mem1.jpg" />
+            </a>
+          </div>
+          <p>Mary Angelie</p>
+        </div>
+
+        <div class="online-list">
+          <div class="online">
+            <a href="http://localhost:3000/chat">
+              <img src="HELF IMAGES/mem2.jpg" />
+            </a>
+          </div>
+          <p>Christine Herm</p>
+        </div>
+
+        <div class="online-list">
+          <div class="online">
+            <a href="http://localhost:3000/chat">
+              <img src="HELF IMAGES/mem3.jpg" />
+            </a>
+          </div>
+          <p>Jackson David</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
